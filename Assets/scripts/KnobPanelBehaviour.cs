@@ -8,6 +8,8 @@ public class KnobPanelBehaviour : MonoBehaviour {
     public GameObject knobPrefab;
     public Color highlightColor = Color.cyan;
 
+    private int index = 0;
+
     private Image[] knobs;
 
     public void Init(int _knobQty) {
@@ -20,9 +22,14 @@ public class KnobPanelBehaviour : MonoBehaviour {
     }
 
     public void SetIndex(int _index) {
+        index = _index;
         for (int i = 0; i < knobs.Length; i++) {
             Color c = _index == i ? highlightColor : Color.white;
             knobs[i].color = c;
         }
+    }
+
+    public int GetIndex() {
+        return index;
     }
 }
